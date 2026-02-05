@@ -1,0 +1,71 @@
+---
+import Logo from "../assets/logo.webp";
+import {Image } from "astro:assets";
+import styles from "../css/header.module.css";
+import Btn from "../ui/Button.astro";
+import MenuIcon from "../assets/menu.png";
+---
+
+<header class={styles.container} id="header">
+  <Image src={Logo} alt="Logo dualsym" class={styles.logo} loading='eager' />
+
+  <!-- NAV DESKTOP -->
+  <nav class={styles.menu}>
+    <ul class={styles.container_item}>
+      <li><a href="#servicios" class={styles.item}>Servicios</a></li>
+      <li><a href="#nosotros" class={styles.item}>Nosotros</a></li>
+      <li><a href="#procesos" class={styles.item}>Procesos</a></li>
+
+      <Btn label="Contactar" href="#contactos" />
+    </ul>
+  </nav>
+
+  <!-- ICONO MOBILE -->
+  <button id="open-menu" class={styles.mobileBtn}>
+    <Image src={MenuIcon} alt="Menú" loading='eager' />
+  </button>
+</header>
+
+<!-- MENU LATERAL MOBILE -->
+<aside id="mobile-menu" class={styles.mobileMenu}>
+    <button id="close-menu" class={styles.btn_close}>✕</button>
+  <div class={styles.mobileHeader}>
+    <Image src={Logo} alt="Logo dualsym"  class={styles.logo} loading='eager'/>
+  </div>
+
+  <ul class={styles.mobileList}>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#procesos">Procesos</a></li>
+    <li><a href="#contactos">Contactar</a></li>
+  </ul>
+</aside>
+
+<div id="overlay" class={styles.overlay}></div>
+
+<script is:inline>
+  const openBtn = document.getElementById("open-menu");
+  const closeBtn = document.getElementById("close-menu");
+  const menu = document.getElementById("mobile-menu");
+  const overlay = document.getElementById("overlay");
+
+  const openMenu = () => {
+    menu?.setAttribute("data-open", "true");
+    overlay?.setAttribute("data-open", "true");
+  };
+
+  const closeMenu = () => {
+    menu?.removeAttribute("data-open");
+    overlay?.removeAttribute("data-open");
+  };
+
+  openBtn?.addEventListener("click", openMenu);
+  closeBtn?.addEventListener("click", closeMenu);
+  overlay?.addEventListener("click", closeMenu);
+
+  // glass effect
+  const header = document.getElementById("header");
+  document.addEventListener("scroll", () => {
+    header?.classList.toggle("glass", window.scrollY > 40);
+  });
+</script>

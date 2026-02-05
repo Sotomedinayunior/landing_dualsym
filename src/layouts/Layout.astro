@@ -1,3 +1,7 @@
+---
+import Style from '../css/global.css';
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,10 +9,12 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+		<link href="https://fonts.googleapis.com" rel="stylesheet">
+
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Landing pages</title>
 	</head>
-	<body>
+	<body class={Style}>
 		<slot />
 	</body>
 </html>

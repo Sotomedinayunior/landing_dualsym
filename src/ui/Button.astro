@@ -1,0 +1,62 @@
+---
+interface Props {
+  label: string;
+  href: string;        // obligatorio, porque es anchor
+  class?: string;
+  target?: "_self" | "_blank";
+}
+
+const {
+  label,
+  href,
+  class: className = "",
+  target = "_self",
+} = Astro.props;
+---
+
+<a
+  href={href}
+  target={target}
+  class={`btn-header ${className}`}
+>
+  {label}
+</a>
+
+<style>
+.btn-header {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;
+  padding: 0 24px;
+
+  border-radius: 9999px;
+  list-style: none;
+
+  background: linear-gradient(
+    90deg,
+    #9333ea 0%,
+    #ec4899 100%
+  );
+
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  text-decoration: none; /* CLAVE para anchor */
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.btn-header:hover {
+  box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);
+}
+
+.btn-header:active {
+  transform: translateY(0);
+}
+</style>

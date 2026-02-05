@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import Logo from "../assets/logo.webp";
+import { Icon } from "astro-icon/components";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="container">
+  <Image
+    src={Logo}
+    alt="Logo dualsym"
+    class="logo"
+    loading="eager"
+  />
+
+  <p class="text-footer">
+    © {year} dualsym. Todos los derechos reservados.
+  </p>
+
+  <div class="icons">
+    <a
+      href="https://github.com/Sotomedinayunior"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="GitHub"
+    >
+      <Icon name="mdi:github" size={20} />
+    </a>
+
+    <a
+      href="https://instagram.com/dualsym"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+    >
+      <Icon name="mdi:instagram" size={20} />
+    </a>
+  </div>
+</footer>
+
+<style scoped>
+  .container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #2a2a2a;
+    display: grid;
+    grid-template-columns: auto auto auto;
+   align-items: center;
+    background-color: #1a1919;
+     padding: 0.9rem 0.4rem;
+
+  }
+
+  .logo {
+    width: 180px;
+    height: auto;
+  }
+
+  .text-footer {
+    color: #e5e7eb;
+    font-size: 0.8rem;
+    text-align: center;
+    flex: 1;
+  }
+
+  .icons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: end;
+    padding-right: 0.9rem;
+  }
+
+  .icons a {
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .icons a:hover {
+    opacity: 0.75;
+    transform: translateY(-1px);
+  }
+</style>
+
