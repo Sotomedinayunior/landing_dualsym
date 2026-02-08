@@ -1,62 +1,91 @@
 ---
 interface Props {
   label: string;
-  href: string;        // obligatorio, porque es anchor
-  class?: string;
+  href: string;
+  variant?: "primary" | "secondary";
   target?: "_self" | "_blank";
 }
 
 const {
   label,
   href,
-  class: className = "",
+
+  variant = "primary",
   target = "_self",
 } = Astro.props;
+
+// Mapa explícito de variantes → clases
+const variantClassMap = {
+  primary: "btn btn-primary",
+  secondary: "btn btn-secondary",
+};
+
+const finalClass = variantClassMap[variant];
 ---
 
 <a
   href={href}
   target={target}
-  class={`btn-header ${className}`}
+  class={finalClass}
 >
-  {label}
+  <slot name="icon" />
+  <span class="label">{label}</span>
 </a>
 
 <style>
-.btn-header {
+/* Base */
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
 
-  height: 40px;
-  padding: 0 24px;
+  
+  padding: 15px 25px;
 
   border-radius: 9999px;
-  list-style: none;
 
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.label {
+  line-height: 1;
+}
+
+/* Primary */
+.btn-primary {
   background: linear-gradient(
     90deg,
     #9333ea 0%,
     #ec4899 100%
   );
-
   color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 600;
-
-  text-decoration: none; /* CLAVE para anchor */
-  white-space: nowrap;
-  flex-shrink: 0;
-  cursor: pointer;
-
-  transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
 
-.btn-header:hover {
+.btn-primary:hover {
   box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);
 }
 
-.btn-header:active {
-  transform: translateY(0);
+/* Secondary */
+.btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  padding: 5px 45px;
+  border: 1px solid #9333ea;
+}
+
+.btn-secondary:hover {
+  background: rgba(147, 51, 234, 0.08);
 }
 </style>

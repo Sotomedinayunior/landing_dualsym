@@ -6,61 +6,67 @@ import { Icon } from "astro-icon/components";
 const year = new Date().getFullYear();
 ---
 
-<footer class="container">
-  <Image
-    src={Logo}
-    alt="Logo dualsym"
-    class="logo"
-    loading="eager"
-  />
+<footer class="footer">
+  <div class="footer-inner">
+    <Image
+      src={Logo}
+      alt="Logo de dualsym"
+      class="logo"
+      loading="lazy"
+    />
 
-  <p class="text-footer">
-    © {year} dualsym. Todos los derechos reservados.
-  </p>
+    <p class="text-footer">
+      © {year} dualsym. Todos los derechos reservados.
+    </p>
 
-  <div class="icons">
-    <a
-      href="https://github.com/Sotomedinayunior"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="GitHub"
-    >
-      <Icon name="mdi:github" size={20} />
-    </a>
+    <nav class="icons" aria-label="Redes sociales">
+      <a
+        href="https://github.com/Sotomedinayunior"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+      >
+        <Icon name="mdi:github" size={20} />
+      </a>
 
-    <a
-      href="https://instagram.com/dualsym"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Instagram"
-    >
-      <Icon name="mdi:instagram" size={20} />
-    </a>
+      <a
+        href="https://instagram.com/dualsym"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+      >
+        <Icon name="mdi:instagram" size={20} />
+      </a>
+    </nav>
   </div>
 </footer>
 
 <style scoped>
-  .container {
-    position: fixed;
-    bottom: 0;
+  .footer {
     width: 100%;
-    border-top: 1px solid #2a2a2a;
-    display: grid;
-    grid-template-columns: auto auto auto;
-   align-items: center;
-    background-color: #1a1919;
-     padding: 0.9rem 0.4rem;
+    border-top:  1px solid #2a2a2a;
+  }
 
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.9rem 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
   }
 
   .logo {
-    width: 180px;
+    max-width: 160px;
+    width: 100%;
     height: auto;
   }
 
   .text-footer {
     color: #e5e7eb;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-align: center;
     flex: 1;
   }
@@ -68,8 +74,6 @@ const year = new Date().getFullYear();
   .icons {
     display: flex;
     gap: 0.75rem;
-    justify-content: end;
-    padding-right: 0.9rem;
   }
 
   .icons a {
@@ -83,5 +87,16 @@ const year = new Date().getFullYear();
     opacity: 0.75;
     transform: translateY(-1px);
   }
-</style>
 
+  /* Responsive */
+  @media (max-width: 640px) {
+    .footer-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .text-footer {
+      order: 3;
+    }
+  }
+</style>

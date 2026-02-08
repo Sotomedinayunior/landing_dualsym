@@ -1,45 +1,84 @@
 /* =========================
-   HEADER
+   HEADER (WRAPPER EXTERNO)
 ========================= */
-.container {
-  background-color: #1a1919;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.header {
   position: sticky;
   top: 0;
-  left: 0;
   z-index: 50;
 
-  padding: 0.9rem 0.4rem;
-  border-bottom:  1px solid #2a2a2a;
+  /* Negro profundo PERO translúcido */
+  background: rgba(5, 3, 4, 0.55);
+
+  backdrop-filter: blur(18px) saturate(190%);
+  -webkit-backdrop-filter: blur(18px) saturate(190%);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+
+  transition:
+    background 0.25s ease,
+    backdrop-filter 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
+
+/* Estado glass al hacer scroll */
+.header.glass {
+  background: rgba(5, 3, 4, 0.42);
+
+  backdrop-filter: blur(22px) saturate(210%);
+  -webkit-backdrop-filter: blur(22px) saturate(210%);
+
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.45);
+}
+/* =========================
+   INNER HEADER (1200px)
+========================= */
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.9rem 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================
+   LOGO
+========================= */
 .logo {
-  width: 200px;
+  max-width: 160px;
+  width: 100%;
   height: auto;
 }
 
 /* =========================
    NAV DESKTOP
 ========================= */
+.menu {
+  display: flex;
+}
+
 .container_item {
   display: flex;
   align-items: center;
-  column-gap: 1.8rem;
+  gap: 1.8rem;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .item {
   text-decoration: none;
-  font-size: 0.9385rem;
+  font-size: 0.95rem;
   color: #a7a2a2;
-  transition: color 0.3s linear;
+  transition: color 0.25s ease;
   text-transform: capitalize;
 }
 
 .item:hover {
-  color: #fff;
+  color: #ffffff;
 }
 
 /* =========================
@@ -49,6 +88,7 @@
   background: none;
   border: none;
   cursor: pointer;
+
   display: flex;
   align-items: center;
 }
@@ -60,30 +100,31 @@
   position: fixed;
   top: 0;
   right: -100%;
-  width: 80%;
-
+  width: 90%;
   height: 100vh;
+
   background-color: #1a1919;
   z-index: 1000;
+
   padding: 1.5rem;
 
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
 
   transition: right 0.3s ease;
 }
 
-/* estado abierto */
+/* Estado abierto */
 .mobileMenu[data-open] {
   right: 0;
-  width:90%;
 }
 
 /* =========================
    HEADER MENU MOBILE
 ========================= */
 .mobileHeader {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -93,10 +134,17 @@
   width: 160px;
 }
 
-.mobileHeader button {
+/* =========================
+   BOTÓN CERRAR
+========================= */
+.btn_close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+
   background: none;
   border: none;
-  color: #fff;
+  color: #ffffff;
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -105,11 +153,13 @@
    LISTA MOBILE
 ========================= */
 .mobileList {
-  margin-top: 2rem;
+  margin-top: 3rem;
   list-style: none;
+
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+
   padding: 0;
 }
 
@@ -117,15 +167,11 @@
   color: #a7a2a2;
   text-decoration: none;
   font-size: 1rem;
+  transition: color 0.2s ease;
 }
 
 .mobileList a:hover {
-  color: #fff;
-}
-
-.btn_close{
-    position: absolute;
-    right: 40px;
+  color: #ffffff;
 }
 
 /* =========================
@@ -134,12 +180,13 @@
 .overlay {
   position: fixed;
   inset: 0;
+
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
 
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
 }
 
 .overlay[data-open] {
@@ -150,24 +197,14 @@
 /* =========================
    BREAKPOINTS
 ========================= */
-@media (max-width: 575px) {
+@media (max-width: 768px) {
   .menu {
     display: none;
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 769px) {
   .mobileBtn {
     display: none;
   }
-}
-
-/* =========================
-   GLASS EFFECT
-========================= */
-.glass {
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }

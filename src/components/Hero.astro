@@ -1,0 +1,93 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "../ui/Button.astro";
+---
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-icons" aria-hidden="true">
+      <Icon name="mdi:code-tags" size="28" style="color:#9333ea;" />
+      <Icon name="mdi:sparkles" size="28" style="color:#ff2fb3;" />
+      <Icon name="mdi:music-note" size="28" style="color:#9333ea;" />
+    </div>
+
+    <h1 class="hero-title">
+      Creamos software
+      <span class="gradient">con ritmo y estilo</span>
+    </h1>
+
+    <p class="hero-text">
+      Desarrollamos sitios web y aplicaciones a la medida, combinando la precisión
+      del código con la creatividad de la música.
+    </p>
+
+    <div class="hero-btns">
+      <Button label="Chatear con nosotros" href="#">
+        <Icon slot="icon" name="mdi:whatsapp" size="18" />
+      </Button>
+      <Button label="Ver servicios" href="#" variant="secondary" />
+    </div>
+  </div>
+</section>
+
+<style scoped>
+  .hero {
+    padding: 4rem 1.5rem;
+  }
+
+  .hero-inner {
+    max-width: 960px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+  }
+
+  .hero-icons {
+    display: flex;
+    gap: 0.9rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.05;
+    color: #f3e8ff;
+    margin: 0.75rem 0;
+  }
+
+  .hero-title span {
+    display: block;
+  }
+
+  .hero-text {
+    max-width: 720px;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    line-height: 1.4;
+    color: #f5ecec;
+    margin: 0;
+  }
+
+  .gradient {
+    background: linear-gradient(
+      90deg,
+      #9333ea,
+      #d946ef,
+      #ff2fb3
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 0.9rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+</style>

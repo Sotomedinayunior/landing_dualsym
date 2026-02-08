@@ -1,7 +1,19 @@
 :root{
-    background-color: #1a1919;
+      /* background: rgba(26, 25, 25, 0.85); color original de todo el documento html  */
+
+    background-color:#050304;
     font-family: 'ui-sans-serif', sans-serif;
-    height: 100vh;
+    font-display: swap;
+}
 
+section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
 
+section.section-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
