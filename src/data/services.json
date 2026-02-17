@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Sitios Web",
+    "icon": "language",
+    "description": "Diseñamos y desarrollamos sitios web modernos, responsivos y optimizados para SEO"
+  },
+  {
+    "title": "Apps Móviles",
+    "icon": "smartphone",
+    "description": "Aplicaciones móviles nativas y multiplataforma con la mejor experiencia de usuario"
+  },
+  {
+    "title": "Desarrollo a Medida",
+    "icon": "code",
+    "description": "Soluciones personalizadas que se adaptan exactamente a tus necesidades"
+  },
+  {
+    "title": "UI/UX Design",
+    "icon": "palette",
+    "description": "Interfaces intuitivas y atractivas que tus usuarios van a amar"
+  },
+  {
+    "title": "Performance",
+    "icon": "bolt",
+    "description": "Optimización y velocidad para que tu proyecto cargue en milisegundos"
+  },
+  {
+    "title": "Soporte 24/7",
+    "icon": "support-headset",
+    "description": "Estamos siempre disponibles para ayudarte cuando lo necesites"
+  }
+]

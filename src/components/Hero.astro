@@ -17,8 +17,8 @@ import Button from "../ui/Button.astro";
     </h1>
 
     <p class="hero-text">
-      Desarrollamos sitios web y aplicaciones a la medida, combinando la precisión
-      del código con la creatividad de la música.
+      Desarrollamos sitios web y aplicaciones a la medida, combinando la
+      precisión del código con la creatividad de la música.
     </p>
 
     <div class="hero-btns">
@@ -27,6 +27,11 @@ import Button from "../ui/Button.astro";
       </Button>
       <Button label="Ver servicios" href="#" variant="secondary" />
     </div>
+  </div>
+  <div class="scroll-indicator">
+    <span class="ring">
+      <span class="dot"></span>
+    </span>
   </div>
 </section>
 
@@ -72,12 +77,7 @@ import Button from "../ui/Button.astro";
   }
 
   .gradient {
-    background: linear-gradient(
-      90deg,
-      #9333ea,
-      #d946ef,
-      #ff2fb3
-    );
+    background: linear-gradient(90deg, #9333ea, #d946ef, #ff2fb3);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -89,5 +89,45 @@ import Button from "../ui/Button.astro";
     margin-top: 1.5rem;
     flex-wrap: wrap;
     justify-content: center;
+  }
+  .scroll-indicator {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+  }
+
+  .ring {
+    width: 36px;
+    height: 36px;
+    border: 2px solid #a855f7;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    background-color: #a855f7;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    animation: scrollDot 1.8s ease-in-out infinite;
+  }
+
+  @keyframes scrollDot {
+    0% {
+      transform: translateY(0);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translateY(10px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 0.5;
+    }
   }
 </style>

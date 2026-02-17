@@ -4,7 +4,8 @@
 .header {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 9999;
+
 
   /* Negro profundo PERO translúcido */
   background: rgba(5, 3, 4, 0.55);

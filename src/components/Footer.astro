@@ -8,12 +8,7 @@ const year = new Date().getFullYear();
 
 <footer class="footer">
   <div class="footer-inner">
-    <Image
-      src={Logo}
-      alt="Logo de dualsym"
-      class="logo"
-      loading="lazy"
-    />
+    <Image src={Logo} alt="Logo de dualsym" class="logo" loading="lazy" />
 
     <p class="text-footer">
       © {year} dualsym. Todos los derechos reservados.
@@ -38,65 +33,70 @@ const year = new Date().getFullYear();
         <Icon name="mdi:instagram" size={20} />
       </a>
     </nav>
-  </div>
-</footer>
 
-<style scoped>
-  .footer {
-    width: 100%;
-    border-top:  1px solid #2a2a2a;
-  }
 
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0.9rem 1rem;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
+  <style scoped>
+    .footer {
+      width: 100%;
+      border-top: 1px solid #2a2a2a;
+    }
 
-  .logo {
-    max-width: 160px;
-    width: 100%;
-    height: auto;
-  }
-
-  .text-footer {
-    color: #e5e7eb;
-    font-size: 0.9rem;
-    text-align: center;
-    flex: 1;
-  }
-
-  .icons {
-    display: flex;
-    gap: 0.75rem;
-  }
-
-  .icons a {
-    color: #ffffff;
-    display: inline-flex;
-    align-items: center;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-
-  .icons a:hover {
-    opacity: 0.75;
-    transform: translateY(-1px);
-  }
-
-  /* Responsive */
-  @media (max-width: 640px) {
     .footer-inner {
-      flex-direction: column;
-      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.9rem 1rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      max-width: 160px;
+      width: 100%;
+      height: auto;
     }
 
     .text-footer {
-      order: 3;
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      text-align: center;
+      flex: 1;
     }
-  }
-</style>
+
+    .icons {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .icons a {
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .icons a:hover {
+      opacity: 0.75;
+      transform: translateY(-1px);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .text-footer {
+        order: 3;
+      }
+    }
+
+    
+  </style>
+</footer>

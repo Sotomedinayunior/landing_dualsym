@@ -1,0 +1,119 @@
+---
+import CardServices from "../ui/CardServices.astro";
+
+const services = [
+  {
+    title: "Sitios Web",
+    icon: "mdi:world",
+    icon_background_color:"#2D1954",
+
+    color: "#C27AFF",
+    
+    description: "Diseñamos y desarrollamos sitios web modernos, responsivos y optimizados para SEO"
+  },
+  {
+    title: "Apps Móviles",
+    icon: "mdi:smartphone",
+    icon_background_color:"#3D163A",
+
+    color:'#fb64b6',
+    description: "Aplicaciones móviles nativas y multiplataforma con la mejor experiencia de usuario"
+  },
+  {
+    title: "Desarrollo a Medida",
+    icon_background_color:"#2D1954",
+
+    icon: "mdi:code",
+    color: "#C27AFF",
+    description: "Soluciones personalizadas que se adaptan exactamente a tus necesidades"
+  },
+  {
+    title: "UI/UX Design",
+    icon: "mdi:palette",
+    icon_background_color:"#3D163A",
+
+    color:'#fb64b6',
+    description: "Interfaces intuitivas y atractivas que tus usuarios van a amar"
+  },
+  {
+    title: "Performance",
+    icon: "mdi:bolt",
+    icon_background_color:"#2D1954",
+
+    color: "#C27AFF",
+    description: "Optimización y velocidad para que tu proyecto cargue en milisegundos"
+  },
+  {
+    title: "Soporte 24/7",
+    icon: "mdi:headset",
+    icon_background_color:"#3D163A",
+
+    color:'#fb64b6',
+    description: "Estamos siempre disponibles para ayudarte cuando lo necesites"
+  }
+];
+---
+
+<section class="service">
+  <div class="service-inner">
+    <h2 class="service-title">Nuestros Servicios</h2>
+    <p class="service-text">
+      Combinamos tecnología de punta con creatividad para crear experiencias
+      digitales únicas
+    </p>
+  </div>
+<div class="service-grid">
+    {
+      services.map((service) => (
+        <CardServices {...service} />
+      ))
+    }
+  </div>
+</section>
+
+<style scoped>
+  .service {
+    padding: 4rem 1.5rem;
+  }
+  .service-inner{
+    max-width:960px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+  }
+  .service-grid {
+  margin-top: 3rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: auto auto auto;
+}
+  .service-title {
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    font-weight: 600;
+    line-height: 1.05;
+    color: #ffffff;
+    margin: 0.75rem 0;
+  }
+    
+  
+  
+  .service-text {
+    max-width: 800px;
+    font-size: clamp(1.1rem, 2.1vw, 1.4rem);
+    line-height: 1.4;
+    color: #a7a2a2;
+    margin: 0;
+  }
+    /* Responsive */
+    @media (max-width: 640px) {
+      .service-grid {
+        grid-template-columns: auto;
+       
+      }
+    }
+
+</style>

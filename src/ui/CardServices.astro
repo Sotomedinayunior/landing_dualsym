@@ -1,0 +1,82 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title: string;
+  description: string;
+  icon: string; 
+  clase?: string;
+  color?:string;
+  icon_background_color?:string,
+
+}
+
+const { title, description, icon, clase = "", color , icon_background_color} = Astro.props;
+---
+
+<div class={`card ${clase}`}>
+  <div class="icon-wrapper" style={`background-color:${icon_background_color}`}>
+    <Icon name={icon} size="28" style={`color:${color}`} />
+  </div>
+
+  <h2>{title}</h2>
+  <p>{description}</p>
+
+  <div class="circle"></div>
+</div>
+
+<style scoped>
+  .card {
+    
+ 
+    max-width: 560px;
+    padding:1.2rem;
+    height: 150px;
+    border-radius: 1rem;
+    
+
+
+    /* Gradiente principal */
+    background: linear-gradient(
+      135deg,
+      #0f1c2e 0%,
+      #18263b 100%
+    );
+
+    /* Borde luminoso */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.03) inset,
+      0 20px 60px rgba(0,0,0,0.6);
+
+ 
+  }
+
+  
+  .icon-wrapper {
+    width: 20px;
+    height: 20px;
+    border-radius: 12px;
+    padding: 0.7rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+ .card  h2 {
+    font-size: 17px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+ .card  p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #a7a2a2;
+    max-width: 500px;
+  }
+</style>
