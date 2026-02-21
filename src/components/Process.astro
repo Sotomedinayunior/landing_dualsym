@@ -1,0 +1,157 @@
+---
+import { Icon } from "astro-icon/components";
+
+const steps = [
+  {
+    title: "Conversación",
+    text: "Hablamos sobre tu proyecto y entendemos tus objetivos",
+    icon: "mdi:chat-outline",
+  },
+  {
+    title: "Diseño",
+    text: "Creamos prototipos enfocados en tu marca",
+    icon: "mdi:lightbulb-outline",
+  },
+  {
+    title: "Desarrollo",
+    text: "Construimos con tecnologías modernas y escalables",
+    icon: "mdi:code-tags",
+  },
+  {
+    title: "Lanzamiento",
+    text: "Deploy, optimización y acompañamiento",
+    icon: "mdi:rocket-outline",
+  },
+];
+---
+
+<section class="process" id="proceso">
+  <div class="inner-process">
+    <h2 class="process-title">Nuestro Proceso</h2>
+    <p class="process-text">
+      Un flujo de trabajo simple y efectivo
+    </p>
+
+    <div class="process-grid">
+      {steps.map((step, i) => (
+        <div class="card">
+          <span class="step">{String(i + 1).padStart(2, "0")}</span>
+
+          <div class="icon">
+            <Icon name={step.icon} size="28" />
+          </div>
+
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style scoped>
+  .process {
+  padding: 6rem 1.5rem;
+}
+
+.inner-process {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+  .process-title {
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    font-weight: 600;
+    line-height: 1.05;
+    color: #ffffff;
+    margin: 0.75rem 0;
+  }
+    
+  
+  
+  .process-text {
+    font-size: clamp(1.1rem, 2.1vw, 1.4rem);
+    line-height: 1.4;
+    text-align: center;
+    color: #a7a2a2;
+    margin: 20px 0;
+  }
+
+.process-grid {
+  margin-top: 4rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  position: relative;
+}
+
+/* línea conectora */
+@media (min-width: 768px) {
+  .process-grid::before {
+    content: "";
+    position: absolute;
+    top: 130px;
+    left: 5%;
+    width: 90%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #c27aff, transparent);
+    z-index: 0;
+  }
+}
+
+.card {
+  position: relative;
+  padding: 2.5rem 1.8rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(145deg, #0f172a, #111827);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  transition: 0.4s ease;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #c27aff;
+  box-shadow: 0 20px 40px rgba(194, 122, 255, 0.15);
+}
+
+/* número */
+.step {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  background: linear-gradient(135deg, #c27aff, #7c3aed);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+}
+
+/* icon */
+.icon {
+  width: 56px;
+  height: 56px;
+  margin: auto;
+  margin-bottom: 1rem;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(124, 58, 237, 0.15);
+  color: #c27aff;
+}
+
+.card h3 {
+  margin-top: 0.5rem;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.card p {
+  margin-top: 0.5rem;
+  color: #a1a1aa;
+  font-size: 0.95rem;
+}
+</style>

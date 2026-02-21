@@ -1,11 +1,29 @@
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 :root{
       /* background: rgba(26, 25, 25, 0.85); color original de todo el documento html  */
 
     background-color:#050304;
     font-family: 'ui-sans-serif', sans-serif;
     font-display: swap;
-}
+    scroll-padding-top: 80px;
+    -webkit-font-smoothing: antialiased;
 
+
+}
+html {
+  scroll-behavior: smooth;
+  will-change: scroll-position;
+  text-rendering: optimizeSpeed;
+
+  scroll-snap-type: y mandatory;
+
+
+}
 section {
   opacity: 0;
   transform: translateY(40px);

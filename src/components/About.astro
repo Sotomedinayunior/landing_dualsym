@@ -1,0 +1,280 @@
+---
+import { Image } from "astro:assets";
+import Programmer from "../assets/dualsym.webp";
+import { Icon } from "astro-icon/components";
+const features = [
+  {
+    icon: "mdi:keyboard-voice",
+    title: "Creatividad Musical",
+    text: "Aplicamos el mismo ritmo y armonía de la música a nuestros proyectos digitales",
+  },
+  {
+    icon: "mdi:code-tags",
+    title: "Código Limpio",
+    text: "Escribimos código elegante, mantenible y escalable como una buena canción",
+  },
+  {
+    icon: "mdi:flash",
+    title: "Entrega Eficiente",
+    text: "Desarrollos ágiles sin sacrificar calidad, manteniendo el tempo perfecto",
+  },
+  {
+    icon: "mdi:heart-outline",
+    title: "Enfoque Humano",
+    text: "Trabajamos contigo de cerca, escuchando tus necesidades como un buen productor",
+  },
+  {
+  icon: "mdi:palette-outline",
+  title: "Diseño con Identidad",
+  text: "Interfaces que transmiten emoción y coherencia visual como la portada de un gran álbum",
+},
+{
+  icon: "mdi:rocket-launch-outline",
+  title: "Escalabilidad",
+  text: "Plataformas preparadas para crecer sin perder rendimiento ni estabilidad",
+},
+{
+  icon: "mdi:chart-line",
+  title: "Optimización Continua",
+  text: "Medimos, iteramos y mejoramos constantemente como en una mezcla profesional",
+}
+];
+---
+
+<section class="about" id="nosotros">
+  <div class="about-inner">
+    <div class="column-left">
+      <div class="image-wrapper">
+        <Image
+          src={Programmer}
+          alt="Porque elegir Dualsym"
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, 480px"
+          class="about-img"
+        />
+
+        <div class="count-box">
+          <span class="count-number" data-target="100">100+</span>
+          <span class="count-text">Proyectos completados</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="column-right">
+      <h2 class="column-title">
+        ¿Por qué elegir <span>Dualsym</span>?
+      </h2>
+
+      <p class="column-text">
+        Creamos soluciones digitales modernas, rápidas y optimizadas para SEO,
+        enfocadas en resultados reales para tu negocio.
+      </p>
+
+      <div class="features">
+        {
+          features.map((item) => (
+            <div class="feature">
+              <div class="feature-icon">
+                <Icon name={item.icon} size="22" />
+              </div>
+
+              <div>
+                <h2>{item.title}</h2>
+                <p>{item.text}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: 4rem 1.5rem;
+  }
+
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .column-left {
+    position: relative;
+  }
+
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  .image-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: -7px; /* grosor de la sombra */
+    border-radius: 15px;
+    background: linear-gradient(135deg, #7b5cff, #e6469d);
+    z-index: -1;
+    filter: blur(4px);
+    opacity: 0.2;
+    
+  }
+
+  .about-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    border-radius: 12px;
+    display: block;
+  }
+
+  .count-box {
+    position: absolute;
+    bottom: -30px;
+    right: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1.4rem 2.2rem;
+    border-radius: 18px;
+
+    background: linear-gradient(135deg, #7b5cff, #e6469d);
+    color: #fff;
+
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  }
+
+  .count-number {
+    font-size: 3rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    min-width: 2.2ch;
+    line-height: 1;
+    display: inline-block;
+  }
+
+  .count-text {
+    font-size: 0.95rem;
+    opacity: 0.9;
+  }
+
+  .column-title {
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    font-weight: 600;
+    line-height: 1.05;
+    color: #ffffff;
+    margin: 0.75rem 0;
+  }
+
+  .column-text {
+    max-width: 800px;
+    font-size: clamp(0.8rem, 1.2vw, 1.4rem);
+    line-height: 1.4;
+    color: #a7a2a2;
+    margin: 0;
+  }
+
+  .column-right span {
+    color: #e6469d;
+  }
+
+  .features {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1.8rem;
+  }
+
+  .feature {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .feature-icon {
+    min-width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #7b5cff, #e6469d);
+    color: white;
+  }
+
+  .feature h2 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .feature p {
+    color: #a7a2a2;
+    margin: 0.3rem 0 0;
+    line-height: 1.4;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .about-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .feature {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .count-box {
+      position: static;
+      margin: 1.5rem auto 0;
+    }
+  }
+</style>
+
+<script>
+  const startCounter = () => {
+    const counters = document.querySelectorAll('.count-number');
+    const speed = 2000; // Duración de la animación en milisegundos (2 segundos)
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target as HTMLElement;
+          const target = +counter.getAttribute('data-target')!;
+          
+          let startTime: number | null = null;
+
+          const updateCount = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const progress = timestamp - startTime;
+            const increment = Math.min(Math.floor((progress / speed) * target), target);
+            
+            counter.innerText = increment.toString() + (increment === target ? "+" : "");
+
+            if (progress < speed) {
+              requestAnimationFrame(updateCount);
+            }
+          };
+
+          requestAnimationFrame(updateCount);
+          observer.unobserve(counter); // Para que solo se anime una vez
+        }
+      });
+    }, { threshold: 0.5 }); // Se activa cuando se ve el 50% del elemento
+
+    counters.forEach(counter => observer.observe(counter));
+  };
+
+  // Se ejecuta al cargar la página
+  document.addEventListener('DOMContentLoaded', startCounter);
+  // Si usas View Transitions de Astro, añade esto también:
+  document.addEventListener('astro:after-swap', startCounter);
+</script>

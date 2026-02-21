@@ -54,7 +54,7 @@ const services = [
 ];
 ---
 
-<section class="service">
+<section class="service" id="servicios">
   <div class="service-inner">
     <h2 class="service-title">Nuestros Servicios</h2>
     <p class="service-text">
@@ -86,9 +86,13 @@ const services = [
     gap: 1.25rem;
   }
   .service-grid {
-  margin-top: 3rem;
+
+  max-width: 1200px;
   display: grid;
+
   gap: 2rem;
+  margin: 0 auto;
+ 
   grid-template-columns: auto auto auto;
 }
   .service-title {
@@ -106,7 +110,7 @@ const services = [
     font-size: clamp(1.1rem, 2.1vw, 1.4rem);
     line-height: 1.4;
     color: #a7a2a2;
-    margin: 0;
+    margin: 20px 0;
   }
     /* Responsive */
     @media (max-width: 640px) {
