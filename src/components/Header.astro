@@ -26,79 +26,12 @@ import MenuIcon from "../assets/menu.png";
       </ul>
     </nav>
 
-    <button
-      id="open-menu"
-      class={styles.mobileBtn}
-      aria-label="Abrir menú"
-      aria-expanded="false"
-    >
-      <Image src={MenuIcon} alt="menu hambugueza de dualsym" loading="eager" />
-    </button>
   </div>
 </header>
 
-<!-- MENU MOBILE -->
-<aside
-  id="mobile-menu"
-  class={styles.mobileMenu}
-  role="dialog"
-  aria-modal="true"
-  aria-hidden="true"
->
-  <button
-    id="close-menu"
-    class={styles.btn_close}
-    aria-label="Cerrar menú"
-  >
-    ✕
-  </button>
 
-  <div class={styles.mobileHeader}>
-    <Image
-      src={Logo}
-      alt="Logo de dualsym"
-      class={styles.logo}
-      loading="eager"
-    />
-  </div>
-
-  <ul class={styles.mobileList}>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#procesos">Procesos</a></li>
-    <li><a href="#contactos">Contactar</a></li>
-  </ul>
-</aside>
-
-<div id="overlay" class={styles.overlay}></div>
 
 <script is:inline>
-  const openBtn = document.getElementById("open-menu");
-  const closeBtn = document.getElementById("close-menu");
-  const menu = document.getElementById("mobile-menu");
-  const overlay = document.getElementById("overlay");
-  const header = document.getElementById("header");
-
-  const openMenu = () => {
-    menu?.setAttribute("data-open", "");
-    menu?.setAttribute("aria-hidden", "false");
-    overlay?.setAttribute("data-open", "");
-    document.body.style.overflow = "hidden";
-    openBtn?.setAttribute("aria-expanded", "true");
-  };
-
-  const closeMenu = () => {
-    menu?.removeAttribute("data-open");
-    menu?.setAttribute("aria-hidden", "true");
-    overlay?.removeAttribute("data-open");
-    document.body.style.overflow = "";
-    openBtn?.setAttribute("aria-expanded", "false");
-  };
-
-  openBtn?.addEventListener("click", openMenu);
-  closeBtn?.addEventListener("click", closeMenu);
-  overlay?.addEventListener("click", closeMenu);
-
   // Glass effect optimizado
   let ticking = false;
 

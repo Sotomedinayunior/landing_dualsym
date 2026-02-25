@@ -1,22 +1,79 @@
 ---
-import Style from "../css/global.css";
+import "../css/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+const {
+  title = "dualsym | Desarrollo de páginas web en Santo Domingo, República Dominicana",
+  description = "Creamos páginas web rápidas, optimizadas para SEO y enfocadas en generar clientes para tu negocio en Santo Domingo. Desarrollo web y software a medida en República Dominicana.",
+  url = "https://dualsym.com",
+  image = "https://dualsym.com/og-image.jpg",
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <link href="https://fonts.googleapis.com" rel="stylesheet" />
 
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={url} />
+    <meta property="og:locale" content="es_DO" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- Geo SEO (muy útil para SEO local) -->
+    <meta name="geo.region" content="DO-01" />
+    <meta name="geo.placename" content="Santo Domingo" />
+    <meta name="geo.position" content="18.4861;-69.9312" />
+    <meta name="ICBM" content="18.4861, -69.9312" />
+
+    <!-- Generator -->
     <meta name="generator" content={Astro.generator} />
-    <title>Landing pages</title>
+
+  
+
+    <!-- Structured Data SEO LOCAL -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Dualsym",
+        "url": "https://dualsym.com",
+        "areaServed": {
+          "@type": "City",
+          "name": "Santo Domingo"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "DO"
+        },
+        "serviceType": [
+          "Desarrollo de páginas web",
+          "SEO",
+          "Desarrollo de software a medida"
+        ]
+      }
+    </script>
   </head>
-  <body class={Style}>
+  <body>
     <Header />
     <main>
       <slot />

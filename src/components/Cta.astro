@@ -7,7 +7,7 @@ import Button from "../ui/Button.astro";
   <div class="inner-cta">
     <h2 class="title-cta">¿Listo para dar el siguiente paso?</h2>
 
-    <p class="cta-text">
+    <p class="text-cta">
       Estamos listos para transformar tu presencia digital. Escríbenos y
       empecemos a construir algo increíble hoy mismo.
     </p>
@@ -22,22 +22,74 @@ import Button from "../ui/Button.astro";
   </div>
 </section>
 
-<style>
+<style scoped>
 .cta {
   padding: 4rem 1.5rem;
-
+  /* Fondo oscuro profundo con un toque de color para que el glassmorphism resalte */
+  background-color: #050510; 
+  display: flex;
+  justify-content: center;
 }
 
 .inner-cta {
-   max-width:960px;
-    margin: 0 auto;
+  max-width: 700px; /* Un poco más ancho como en la imagen */
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  
+  /* GLASSMORPHISM */
+  background: rgba(255, 255, 255, 0.03); /* Blanco casi transparente */
+  border-radius: 40px; /* Bordes más redondeados */
+  backdrop-filter: blur(20px); /* Aumentamos el desenfoque */
+  -webkit-backdrop-filter: blur(20px);
+  
+  /* EL BORDE CON LUZ */
+  /* Usamos un borde semi-transparente que capture la luz */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  /* EL GLOW (Resplandor) */
+  /* Esto genera esa sensación de color en los bordes y profundidad */
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 20px 0 rgba(255, 255, 255, 0.05) inset; /* Sombra interna para volumen */
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
 }
+
+/* Opcional: El brillo púrpura que se ve en la esquina de la imagen */
+.inner-cta::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.1) 0%, transparent 70%);
+  z-index: -1;
+}
+
+  .title-cta {
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: #ffffff;
+    margin: 0.75rem 0;
+  }
+    
+  
+  
+  .text-cta {
+    max-width: 600px;
+    font-size: clamp(1rem, 1.1vw, 1.4rem);
+    line-height: 1.4;
+    color: #a7a2a2;
+    margin: 20px 0;
+  }
 
 
 

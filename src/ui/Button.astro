@@ -88,4 +88,17 @@ const finalClass = variantClassMap[variant];
 .btn-secondary:hover {
   background: rgba(147, 51, 234, 0.08);
 }
+@media (max-width: 640px) {
+  .btn {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    border-radius: 14px; /* menos “pill” en mobile se siente mejor */
+  }
+
+  .label {
+    white-space: normal; /* permite salto de línea si hace falta */
+    text-align: center;
+  }
+}
 </style>

@@ -2,8 +2,12 @@
 import { defineConfig } from "astro/config";
 import Icon from "astro-icon";
 
-// https://astro.build/config
 export default defineConfig({
+  vite: {
+    build: {
+      minify: "esbuild", // o "terser"
+    }
+  },
   integrations: [
     Icon(),
   ],

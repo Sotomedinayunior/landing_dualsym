@@ -82,130 +82,15 @@
   color: #ffffff;
 }
 
-/* =========================
-   BOTÓN MOBILE
-========================= */
-.mobileBtn {
-  background: none;
-  border: none;
-  cursor: pointer;
 
-  display: flex;
-  align-items: center;
-}
-
-/* =========================
-   MENU LATERAL MOBILE
-========================= */
-.mobileMenu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 90%;
-  height: 100vh;
-
-  background-color: #1a1919;
-  z-index: 1000;
-
-  padding: 1.5rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  transition: right 0.3s ease;
-}
-
-/* Estado abierto */
-.mobileMenu[data-open] {
-  right: 0;
-}
-
-/* =========================
-   HEADER MENU MOBILE
-========================= */
-.mobileHeader {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.mobileHeader img {
-  width: 160px;
-}
-
-/* =========================
-   BOTÓN CERRAR
-========================= */
-.btn_close {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-/* =========================
-   LISTA MOBILE
-========================= */
-.mobileList {
-  margin-top: 3rem;
-  list-style: none;
-
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-
-  padding: 0;
-}
-
-.mobileList a {
-  color: #a7a2a2;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.2s ease;
-}
-
-.mobileList a:hover {
-  color: #ffffff;
-}
-
-/* =========================
-   OVERLAY
-========================= */
-.overlay {
-  position: fixed;
-  inset: 0;
-
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease;
-}
-
-.overlay[data-open] {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* =========================
-   BREAKPOINTS
-========================= */
 @media (max-width: 768px) {
   .menu {
     display: none;
   }
-}
 
-@media (min-width: 769px) {
-  .mobileBtn {
-    display: none;
+  .inner{
+    justify-content: center;
+    position: relative;
+
   }
 }
