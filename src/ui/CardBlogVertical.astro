@@ -1,0 +1,127 @@
+---
+interface Props {
+  title: string;
+  date: string;
+  readTime: string;
+  description: string;
+  image: string;
+  url: string;
+}
+import { Image } from "astro:assets";
+
+const { title, date, readTime, description, image, url } = Astro.props;
+---
+
+<article class="post-card">
+  <div class="image-container">
+    <Image src={image} alt={title} width={140} height={35} loading="lazy" />
+
+  </div>
+  
+  <div class="content">
+    <div class="meta">
+      <span>{date}</span>
+      <span class="separator">•</span>
+      <span>{readTime}</span>
+    </div>
+    
+    <h3>{title}</h3>
+    <p>{description}</p>
+    
+    <a href={url} class="read-more">
+      Leer más <span>→</span>
+    </a>
+  </div>
+</article>
+
+<style>
+  .post-card {
+    background-color: #0a0a0c; /* Negro azulado muy oscuro */
+    border: 1px solid #1e1e26; /* Borde sutil */
+    border-radius: 20px;
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    max-width: 100%;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .post-card:hover {
+    border-color: #3f3f4a;
+    transform: translateY(-5px);
+  }
+
+  /* Imagen */
+  .image-container {
+    flex-shrink: 0;
+  }
+
+  .image-container img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  /* Contenido */
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .meta {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  h3 {
+    color: #fff;
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+  }
+
+  p {
+    color: #999;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0 0 1rem 0;
+    /* Limitar a 2 líneas de texto */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Link Leer más */
+  .read-more {
+    color: #a855f7; /* Color purpura/magenta de la imagen */
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.2s ease;
+  }
+
+  .read-more:hover {
+    gap: 0.8rem;
+  }
+
+  /* Responsive para pantallas pequeñas */
+  @media (max-width: 480px) {
+    .post-card {
+      flex-direction: column;
+    }
+    .image-container img {
+      width: 100%;
+      height: 180px;
+    }
+  }
+</style>

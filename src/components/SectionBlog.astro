@@ -1,0 +1,96 @@
+---
+import CardBlogVertical from "../ui/CardBlogVertical.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+const sortedPosts = posts.sort((a, b) => 
+  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<section class="blog">
+  <div class="blog-inner">
+    
+    <div class="column-left">
+      <h2 class="blog-title">Últimas publicaciones</h2>
+
+      <p class="blog-text">
+        Insights sobre desarrollo web, música y creatividad digital
+      </p>
+
+      <a href="/blog" class="blog-btn">Ver todos los artículos →</a>
+    </div>
+
+    <div class="column-right">
+      {sortedPosts.map((post) => (
+        <CardBlogVertical
+          title={post.data.title}
+          date={post.data.date.toLocaleDateString("es-ES", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+          })}
+          readTime={post.data.readTime}
+          description={post.data.description}
+          image={post.data.image ?? "/images/default.jpg"}
+          url={`/blog/${post.slug}`}
+        />
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style scoped>
+  .blog {
+  padding: 4rem 1.5rem;
+}
+
+.blog-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 1rem;
+  align-items: start;
+}
+
+.column-right{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.blog-title {
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  font-weight: 600;
+  line-height: 1.05;
+  color: #ffffff;
+  margin: 0.75rem 0;
+}
+
+.blog-text {
+  max-width: 500px;
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
+  line-height: 1.4;
+  color: #cfcfcf;
+  margin-bottom: 1.5rem;
+}
+
+.blog-btn{
+  background: none;
+  text-decoration: none;
+  border: none;
+  color: #a855f7;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+@media (max-width: 576px){
+
+  .blog-inner{
+    grid-template-columns: 1fr;
+  }
+
+}
+</style>

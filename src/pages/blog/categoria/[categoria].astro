@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import BlogPagesLayout from '../../../layouts/BlogPagesLayout.astro';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog');
+  
+  // Obtenemos todas las categorías únicas de los archivos .md
+  const uniqueCategories = [...new Set(allPosts.map((post) => post.data.category).filter(Boolean))];
+
+  return uniqueCategories.map((categoria) => {
+    const filteredPosts = allPosts.filter((post) => post.data.category === categoria);
+    return {
+      params: { categoria },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { categoria } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BlogPagesLayout title={`Posts de ${categoria}`}>
+  <main>
+    <h1>Categoría: <span>{categoria}</span></h1>
+    
+    <ul>
+      {posts.map((post) => (
+        <li>
+          <a href={`/blog/${post.slug}`}>
+            {post.data.title}
+          </a>
+          <p>{post.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  </main>
+</BlogPagesLayout>
+
+<style>
+  /* Aquí puedes aplicar tu estilo de glassmorphism si lo deseas */
+  span {
+    text-transform: capitalize;
+    color: #4f46e5;
+  }
+</style>

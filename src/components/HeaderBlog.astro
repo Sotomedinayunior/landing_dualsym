@@ -1,0 +1,124 @@
+---
+import Logo from "../assets/logo.webp";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+---
+
+<header class="main-header">
+  <div class="header-grid">
+    
+    <div class="column left">
+      <a href="/">
+        <Image src={Logo} alt="Logo de Dualsym" width={140} height={35} />
+      </a>
+    </div>
+
+    <nav class="column center">
+      <ul>
+        <li><a href="/categoria/desarrollo">Desarrollo</a></li>
+        <li><a href="/categoria/ai">AI</a></li>
+         <li><a href="/categoria/analisis-de-datos">Análisis de Datos</a></li>
+         <li><a href="/categoria/automatizacion">Automatización</a></li>
+        <li><a href="/categoria/seo">Arquitectura</a></li>
+        <li><a href="/categoria/tutoriales">Tutoriales</a></li>
+      </ul>
+    </nav>
+
+    <div class="column right">
+      <a href="#buscar" class="search-link" aria-label="Buscar">
+        <Icon name="mdi:search" size="26" />
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<style>
+  .main-header {
+    background-color: #000;
+    color: #fff;
+    padding: 1.2rem 2rem;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .header-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    /* 1fr a los lados y auto al centro asegura el centrado absoluto */
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+
+  .column {
+    display: flex;
+    align-items: center;
+  }
+
+  .column.left { justify-content: flex-start; }
+  .column.center { justify-content: center; }
+  .column.right { 
+    justify-content: flex-end; 
+    gap: 2rem; 
+  }
+
+  /* Estilos de los Enlaces del Menú */
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li a {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: #fff;
+  }
+
+  /* Buscador */
+  .search-link {
+    color: #999;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .search-link:hover {
+    color: #fff;
+    transform: scale(1.1);
+  }
+
+  /* Link de Contacto (con el degradado de tu imagen) */
+  .contact-link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    background: linear-gradient(90deg, #8a2be2, #da70d6, #ff1493);
+    padding: 0.6rem 1.8rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    transition: opacity 0.3s ease;
+  }
+
+  .contact-link:hover {
+    opacity: 0.85;
+  }
+
+  /* Responsive Móvil */
+  @media (max-width: 1024px) {
+    .column.center {
+      display: none; /* Ocultar categorías en tablets/móvil para poner un menú lateral luego */
+    }
+    .header-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
